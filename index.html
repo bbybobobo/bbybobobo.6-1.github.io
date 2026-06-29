@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natchanok's Portfolio</title>
+    <style>
+        /* สไตล์พื้นฐาน (Reset & Base Styles) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* ส่วนหัว (Header & Navigation) */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4a90e2;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4a90e2;
+        }
+
+        /* ส่วนแนะนำตัว (Hero Section) */
+        .hero {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 40px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .hero-text h2 {
+            font-size: 24px;
+            color: #666;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #4a90e2;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #357abd;
+        }
+
+        .hero-img {
+            width: 300px;
+            height: 300px;
+            background-color: #e2e8f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #777;
+            /* สามารถเปลี่ยนเป็นแท็ก img แล้วใส่รูปจริงได้ */
+        }
+
+        /* ส่วนเนื้อหาหลัก (Sections) */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background-color: #4a90e2;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* ผลงาน (Projects Grid) */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-img {
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            margin-bottom: 10px;
+        }
+
+        /* ส่วนท้าย (Footer) */
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        /* รองรับหน้าจอมือถือ */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .nav-links {
+                display: none; /* เพื่อความง่ายในตัวอย่าง หากใช้จริงแนะนำทำแฮมเบอร์เกอร์เมนู */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- คอนเทนเนอร์ส่วนหัว -->
+    <header>
+        <nav>
+            <div class="logo">NATCHANOK.</div>
+            <ul class="nav-links">
+                <li><a href="#about">เกี่ยวกับฉัน</a></li>
+                <li><a href="#projects">ผลงาน</a></li>
+                <li><a href="#contact">ติดต่อ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ส่วนแนะนำตัว -->
+    <section class="hero" id="about">
+        <div class="hero-text">
+            <h1>สวัสดีค่ะ, ฉันชื่อ ณัชนก</h1>
+            <h2>ยินดีต้อนรับสู่พื้นที่รวบรวมผลงานและโปรเจกต์ของฉัน</h2>
+            <p style="margin-bottom: 25px; color: #666;">ฉันเป็นนักพัฒนาเว็บ / ดีไซเนอร์ ที่หลงใหลในการสร้างสรรค์ผลงานดิจิทัลที่มีประสิทธิภาพและตอบโจทย์ผู้ใช้งาน</p>
+            <a href="#contact" class="btn">พูดคุยกันได้นะ!</a>
+        </div>
+        <!-- พื้นที่ใส่รูปภาพประจำตัว -->
+        <div class="hero-img">
+            <span>[ รูปภาพของณัชนก ]</span>
+        </div>
+    </section>
+
+    <hr style="border: 0; border-top: 1px solid #e2e8f0; max-width: 1100px; margin: 0 auto;">
+
+    <!-- ส่วนแสดงผลงาน -->
+    <section class="container" id="projects">
+        <h2 class="section-title">ผลงานของฉัน</h2>
+        <div class="project-grid">
+            
+            <!-- การ์ดผลงานชิ้นที่ 1 -->
+            <div class="project-card">
+                <div class="project-img">[ รูปภาพโปรเจกต์ 1 ]</div>
+                <div class="project-info">
+                    <h3>Project Name 1</h3>
+                    <p>คำอธิบายสั้นๆ เกี่ยวกับโปรเจกต์นี้ว่าทำเกี่ยวกับอะไร และใช้เทคโนโลยีอะไรบ้าง</p>
+                </div>
+            </div>
+
+            <!-- การ์ดผลงานชิ้นที่ 2 -->
+            <div class="project-card">
+                <div class="project-img">[ รูปภาพโปรเจกต์ 2 ]</div>
+                <div class="project-info">
+                    <h3>Project Name 2</h3>
+                    <p>คำอธิบายสั้นๆ เกี่ยวกับโปรเจกต์นี้ว่าทำเกี่ยวกับอะไร และใช้เทคโนโลยีอะไรบ้าง</p>
+                </div>
+            </div>
+
+            <!-- การ์ดผลงานชิ้นที่ 3 -->
+            <div class="project-card">
+                <div class="project-img">[ รูปภาพโปรเจกต์ 3 ]</div>
+                <div class="project-info">
+                    <h3>Project Name 3</h3>
+                    <p>คำอธิบายสั้นๆ เกี่ยวกับโปรเจกต์นี้ว่าทำเกี่ยวกับอะไร และใช้เทคโนโลยีอะไรบ้าง</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ส่วนข้อมูลติดต่อ -->
+    <section class="container" id="contact" style="text-align: center; background-color: #fff; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+        <h2 class="section-title">ติดต่อฉัน</h2>
+        <p style="margin-bottom: 15px;">หากคุณสนใจร่วมงาน หรือมีข้อสงสัยใดๆ สามารถติดต่อได้ทางอีเมลหรือช่องทางด้านล่างนี้</p>
+        <p><strong>Email:</strong> natchanok@example.com</p>
+        <p><strong>GitHub:</strong> github.com/natchanok</p>
+    </section>
+
+    <!-- ส่วนท้ายหน้าเว็บ -->
+    <footer>
+        <p>&copy; 2026 Natchanok. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
